@@ -1,0 +1,12 @@
+ <%= form_with model: [conversation, post], id: "form" do |form| %>
+    <div>
+    <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+    </div> 
+    
+    <%= form.label :body %>
+    <%= form.rich_text_area :body %>
+
+    <%= form.submit %>
+<% end %>

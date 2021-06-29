@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @conversation.subject %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= link_to @conversation.contact.name, @conversation.contact %>
+</p>
+
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>
+
+<%= turbo_stream_from @conversation %>
+<div id="posts">
+  <%= render @posts %>
+</div>
+
+<%= render partial: "posts/form", locals: { conversation: @conversation, post: Post.new } %>

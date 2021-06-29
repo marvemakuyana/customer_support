@@ -1,0 +1,5 @@
+<div>
+  <%= params[:post].author.name %> replied to <%= params[:conversation].subject %>.
+</div>
+
+<%= link_to "Read message", conversation_url(params[:conversation], anchor: dom_id(params[:post])) %>
